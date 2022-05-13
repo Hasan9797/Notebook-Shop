@@ -1,0 +1,60 @@
+<h1>Orders</h1>
+
+{{#if orders.length}}
+{{#each orders}}
+
+<div class="card iscard">
+  <div class="card-header">
+    <p colspan="2">Order id: <small>{{_id}}</small></p>
+    <p colspan="2">{{user.userId.name}} <i>{{user.userId.email}}</i></p>
+  </div>
+  <div class="card-content">
+    <ol>
+      {{#each notebooks}}
+      <li>
+        <b>{{notebook.title}}</b>
+        <b>(x <b>{{count}}</b>)</b>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
+  <div class="card-action actions">
+    <p class="data">{{date}}</p>
+    <h4>Price: <span class="price">{{price}}</span></h4>
+  </div>
+</div>
+
+{{!-- <div class="Yorder">
+  <table>
+
+  </table>
+
+</div><br> --}}
+{{/each}}
+{{else}}
+<div class="mt-100">
+      <div class="row bascket">
+        <div class="col-md-12">
+          <div class="card bascket">
+            <div class="card-body cart">
+              <div class="col-sm-12 empty-cart-cls text-center">
+                <img
+                  src="https://i.imgur.com/dCdflKN.png"
+                  width="130"
+                  height="130"
+                  class="img-fluid mb-4 mr-3"
+                />
+                <h3><strong>Your Order is Empty</strong></h3>
+                <h4>Add something to make me happy :)</h4>
+                <a
+                  href="/card"
+                  class="btn btn-primary cart-btn-transform m-3"
+                  data-abc="true"
+                >Buy Notebooks</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{{/if}}
